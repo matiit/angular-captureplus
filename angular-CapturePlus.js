@@ -55,6 +55,10 @@ app.factory('CapturePlus', function () {
 });
 
 function getAllElementsWithAttribute(attribute) {
+    if (document.querySelectorAll) {
+        return document.querySelectorAll('['+ attribute + ']');
+    }
+
     var matchingElements = [];
     var allElements = document.getElementsByTagName('*');
     for (var i = 0; i < allElements.length; i++) {
@@ -65,4 +69,4 @@ function getAllElementsWithAttribute(attribute) {
         }
     }
     return matchingElements;
-}   
+}
